@@ -54,10 +54,11 @@ public class Game {
     /**
      * Replaces all movie titles with underscores
      * @param movieTitle
+     * @param correctLetters
      * @return 
      */
     public String obscureTitle(String movieTitle, String correctLetters) {
-        if(correctLetters == "") {
+        if("".equals(correctLetters)) {
             return movieTitle.replaceAll("[a-zA-Z]", "_");
         } else {
             return movieTitle.replaceAll("[a-zA-Z&&[^" + correctLetters + "]]", "_");
@@ -102,26 +103,52 @@ public class Game {
         // Game over
         boolean gameOver = false;
         
-        while(!gameOver) {
+        boolean outOfguesses = false;
+        
+        
+        String hush = obscureTitle( movie, correctLetters);
+ 
+        
+        
+
+                while(!gameOver) {
             // Obscure the title
             System.out.println(obscureTitle(movie, correctLetters));
+            
 
 
             // Get a user guess
             String guess = inputLetter();
             //Check to see if the users guess is in the title
-            if(checkGuess(movie, guess)) {
+            if(checkGuess(movie, guess)&& !outOfguesses) {
                 correctLetters += guess;
                 System.out.println("Correct!");
             } else {
                 wrongLetters += guess;
                 System.out.println("Sorry, try again!");
                 livesLeft--;
+                if(livesLeft==0){
+                    gameOver=true;
+                    System.out.println("Game over");
+                }
             }
-        }   
+        }
+
+    }
+
+            
+               
+            
+
+        }
+            
+            
+         
+
         
        
+               
         
-    }
     
-}
+    
+

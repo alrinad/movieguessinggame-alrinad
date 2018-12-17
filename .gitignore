@@ -1,0 +1,5 @@
+/nbproject/private/
+/build/
+System.out.println("This is all the correct letters -- " + correctLetters);
+                System.out.println("Incorrectly guessed letters are -- " + wrongLetters);
+/dist/
