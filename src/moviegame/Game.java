@@ -123,10 +123,14 @@ public class Game {
             if(checkGuess(movie, guess)&& !outOfguesses) {
                 correctLetters += guess;
                 System.out.println("Correct!");
+                System.out.println("This is all the correct letters -- " + correctLetters);
+                System.out.println("Incorrectly guessed letters are -- " + wrongLetters);
             } else {
                 wrongLetters += guess;
                 System.out.println("Sorry, try again!");
                 livesLeft--;
+                 System.out.println("This is all the correct letters -- " + correctLetters);
+                System.out.println("Incorrectly guessed letters are -- " + wrongLetters);
                 if(livesLeft==0){
                     gameOver=true;
                     System.out.println("Game over");
